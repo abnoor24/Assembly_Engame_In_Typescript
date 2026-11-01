@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1e1e1e;
+
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 594px;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+
+  background-color: #282726;
+  font-family: "Hanken Grotesk", sans-serif;
+
+  padding: 73px 57px;
+}
+
+/* Heading and Game State Board */
+
+.heading {
+  width: 352px;
+  min-height: 145px;
+
+  padding: 0;
+}
+.heading > #title {
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #f9f4da;
+
+  padding-top: 0;
+  margin-bottom: 4px;
+}
+
+.heading > p {
+  color: #8e8e8e;
+  margin-bottom: 20px;
+  font-size: 0.875rem;
+}
+
+.game-state-display {
+  color: #f9f4da;
+  border-radius: 4px;
+  font-weight: 300;
+  height: 58px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-state-display > h3 {
+  font-size: 1.25rem;
+
+  font-weight: 300;
+}
+.game-state-display > h4 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* Language Dispaly */
+
+ul.language-display {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 254px;
+  gap: 2px;
+}
+ul.language-display > li {
+  position: relative; /* Establishes positioning context for ::before */
+  overflow: hidden; /* Ensures overlay clips to border-radius */
+  list-style-type: none;
+  font-size: 0.75rem;
+  padding: 4.5px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+ul.language-display > li.lost::before {
+  content: "💀";
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 0.85rem;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.language-display > li[font-color="dark"] {
+  color: #1e1e1e;
+}
+.language-display > li[font-color="light"] {
+  color: #f9f4da;
+}
+
+/* WordDisplay */
+
+.word {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+
+  gap: 2px;
+}
+.word > span {
+  height: 40px;
+  width: 40px;
+
+  background-color: #323232;
+  color: #f9f4da;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+
+  padding: 6px 6px;
+
+  border-bottom: 1px solid white;
+}
+
+.word > span.missed-letter {
+  color: #ec5d49;
+}
+
+/* Keyboard */
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+
+  gap: 6px;
+  width: 480px;
+
+  margin-top: 50px;
+}
+
+.keyboard > button {
+  width: 40px;
+  height: 40px;
+  color: #1e1e1e;
+  border: 1px white solid;
+  border-radius: 4px;
+  background-color: #fcba29;
+
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.keyboard > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.keyboard > button.correct {
+  background-color: #10a95b;
+}
+
+.keyboard > button.wrong {
+  background-color: #ec5d49;
+}
+
+/* New Game Button */
+
+#new-game {
+  margin-top: 36px;
+  width: 228px;
+  height: 40px;
+
+  background-color: #11b5e5;
+  border-radius: 4px;
+  border: 1px white solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
