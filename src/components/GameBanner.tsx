@@ -1,9 +1,15 @@
 import { getFarewellText } from "./utils"
-import languages from "../Data/Languages"
+import languages, { type Language } from "../Data/languages"
+import type { JSX } from "react/jsx-runtime"
+type GameBanner = {
+  gameCounter: number,
+  gameCondition: string,
+  isLastGuessIncorrect: boolean,
+}
 
-export default function GameBanner(props) {
+export default function GameBanner({gameCounter, gameCondition, isLastGuessIncorrect}: GameBanner): JSX.Element | null {
 
-    if (props.gameCondition === "lost") {
+    if (gameCondition === "lost") {
         return <div
           aria-live="polite"
           role="status"
@@ -13,7 +19,7 @@ export default function GameBanner(props) {
           <h3>Game over!</h3>
           <h4>You lose! Better start learning Assembly 😭</h4>
         </div>
-    } else if (props.gameCondition === "won") {
+    } else if (gameCondition === "won") {
         return <div
           aria-live="polite"
           role="status"
@@ -23,10 +29,10 @@ export default function GameBanner(props) {
           <h3>You Win!</h3>
           <h4> Well done!🎉</h4>
         </div>
-    } else if (props.gameCounter > 0) {
-      if (props.isLastGuessIncorrect) {
-        const lostLanguage = languages.find(
-          (element) => element.id === props.gameCounter,
+    } else if (gameCounter > 0) {
+      if (isLastGuessIncorrect) {
+        const lostLanguage: Language | undefined = languages.find(
+          (element) => element.id === gameCounter,
         )
         return <div
           aria-live="polite"
@@ -34,7 +40,7 @@ export default function GameBanner(props) {
           className="game-state-display"
           style={{ backgroundColor: "#7A5EA7", border: "1px solid #323232" }}
         >
-          <h3>{getFarewellText(lostLanguage.name)}</h3>
+          { lostLanguage && <h3>{getFarewellText(lostLanguage.name)}</h3> }
         </div>
       }
     }

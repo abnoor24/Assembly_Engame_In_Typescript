@@ -7,9 +7,8 @@ type Header = {
   gameCounter: number,
   gameCondition: string,
   isLastGuessIncorrect: boolean,
-  playerInput: string[]
 }
-export default function Header( {gameCounter, gameCondition, isLastGuessIncorrect, playerInput} : Header ): JSX.Element {
+export default function Header( {gameCounter, gameCondition, isLastGuessIncorrect} : Header ): JSX.Element {
   return (
     <header className="heading">
       <h3 id="title">Assembly Endgame</h3>
@@ -22,7 +21,6 @@ export default function Header( {gameCounter, gameCondition, isLastGuessIncorrec
         gameCounter={gameCounter}
         gameCondition={gameCondition}
         isLastGuessIncorrect={isLastGuessIncorrect}
-        playerInput={playerInput}
       />
     </header>
   );

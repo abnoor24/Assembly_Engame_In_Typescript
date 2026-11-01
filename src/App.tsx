@@ -49,7 +49,6 @@ export default function App() {
         gameCounter={gameCounter}
         gameCondition={gameCondition}
         isLastGuessIncorrect={isLastGuessIncorrect}
-        playerInput={playerInput}
       />
       <LanguageDisplay gameCounter={gameCounter} />
       <WordDisplay
